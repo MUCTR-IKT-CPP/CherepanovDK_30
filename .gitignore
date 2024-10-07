@@ -1,2 +1,5 @@
 # assembling files
 *.o
+
+# binaries
+*.exe
