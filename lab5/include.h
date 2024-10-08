@@ -5,3 +5,4 @@
 #include "details/controlPanel.h"
 
 #include "machine.h"
+#include "workshop.h"

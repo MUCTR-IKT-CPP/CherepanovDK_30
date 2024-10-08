@@ -21,14 +21,11 @@ class Detail {
         virtual bool needToReplace() = 0;
 
         int replace() {
-            std::cout << "Detail " << typeid(*this).name() << " was replaced" << std::endl;
             currentLifetime = 0;
             return replacePrice;
         }
 
         int repair() {
-            std::cout << "Detail " << typeid(*this).name() << " was repaired" << std::endl;
-            currentLifetime = currentLifetime * 0.8;
             return repairPrice;
         }
 
