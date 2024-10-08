@@ -1,5 +1,8 @@
 #include "include.h"
 
+/**
+ * Prints the menu to the console
+ */
 void printMenu() {
     std::cout << "1 - Add machine" << std::endl;
     std::cout << "2 - Work" << std::endl;
@@ -8,6 +11,14 @@ void printMenu() {
 }
 
 
+/**
+ * Adds a detail to the machine
+ *
+ * Prompts the user to select the type of the detail, enter its replace price, repair price, repair time and nominal lifetime
+ * and adds the selected detail to the machine
+ *
+ * @param machine the machine to which the detail is added
+ */
 void addDetail(Machine& machine) {
     std::cout << "Select detail Type (1 - Motor, 2 - Shaft, 3 - CuttingHead, 4 - ControlPanel)" << std::endl;
     int detailType;
@@ -40,6 +51,16 @@ void addDetail(Machine& machine) {
     }
 }
 
+/**
+ * Creates a new machine with at least one detail
+ *
+ * The function prompts the user to decide if they want to add additional details
+ * to the machine. If the user wants to add a detail, the function calls addDetail
+ * to add the detail to the machine. If the user doesn't want to add additional
+ * details, the function returns the machine.
+ *
+ * @return a machine with at least one detail
+ */
 Machine createMachine() {
     Machine machine;
     machine.addDetail(std::make_shared<Motor>(100, 10, 10, 100));
