@@ -1,3 +1,5 @@
+#include <unordered_map>
+
 
 class Workshop {
     private:
@@ -7,6 +9,19 @@ class Workshop {
         int sumRepairCost = 0;
         int sumBrokeCount = 0;
         std::vector<Machine> machines;
+
+        /**
+         * Resets all statistics to zero.
+         *
+         * This function should be called before each new year of simulation.
+         */
+        void resetStatistics() {
+            maxMachineIdle = 0;
+            sumMachineIdle = 0;
+            sumReplaceCount = 0;
+            sumRepairCost = 0;
+            sumBrokeCount = 0;
+        }
 
     public:
         void addMachine(std::shared_ptr<Machine> machine) {
@@ -30,6 +45,7 @@ class Workshop {
             }
 
             getStatistics();
+
         }
 
         void getStatistics() {
@@ -43,6 +59,7 @@ class Workshop {
                 }
             }
         }
+
 
 
         friend std::ostream& operator<<(std::ostream& os, const Workshop& workshop) {

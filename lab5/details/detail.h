@@ -20,15 +20,31 @@ class Detail {
 
         virtual bool needToReplace() = 0;
 
+        /**
+         * Replace the detail and return the cost of replacement.
+         * Reset the current lifetime to 0.
+         *
+         * @return the cost of replacement
+         */
         int replace() {
             currentLifetime = 0;
             return replacePrice;
         }
 
+        /**
+         * Repair the detail and return the cost of repair.
+         *
+         * @return the cost of repair
+         */
         int repair() {
             return repairPrice;
         }
 
+        /**
+         * Get the time it takes to repair the detail.
+         *
+         * @return the time it takes to repair the detail
+         */
         int getRepairTime() {
             return repairTime;
         }
