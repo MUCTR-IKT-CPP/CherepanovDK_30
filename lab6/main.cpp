@@ -1,6 +1,9 @@
 #include "include.h"
 #include <memory>
 
+/**
+ * Prints the main menu to the console
+ */
 void menu() {
 
     std::cout << "1 - Add target" << std::endl;
@@ -11,6 +14,10 @@ void menu() {
     std::cout << "0 - Exit" << std::endl;
 }
 
+/**
+ * Prompts the user to enter data for a target and creates a new target with the inputted data
+ * @return A shared pointer to the newly created target
+ */
 std::shared_ptr<Target> createTarget() {
 
     std::cout << "1 - Standard target" << std::endl;
@@ -46,6 +53,11 @@ std::shared_ptr<Target> createTarget() {
     }
 }
 
+/**
+ * The main function of the program
+ * It creates a ShootingRange object and provides a menu to the user to interact with the program
+ * The user can add targets, start simulation, print statistics, generate new targets, print targets or exit the program
+ */
 int main() {
 
     std::srand(std::time(0));

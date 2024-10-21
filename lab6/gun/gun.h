@@ -14,6 +14,14 @@ class Gun {
 
         int getMagSize() const { return magSize; }
 
+        /**
+         * Simulates a single shot of the gun.
+         * If the gun has ammo, decrements the ammo and then checks if the shot hits.
+         * If the shot hits, returns the gun's damage.
+         * If the shot misses, returns 0.
+         * @param difficulty the difficulty of the target
+         * @return the damage dealt by the shot
+         */
         int singleShot(double difficulty) {
             if (ammo > 0) {
                 ammo--;
@@ -25,6 +33,15 @@ class Gun {
             }
         }   
 
+        /**
+        * Simulates a burst shot of the gun.
+        * If the gun has enough ammo for a burst shot, calculates the damage dealt by the burst based on the current ammo and burst size.
+        * Checks if the burst hits the target based on the difficulty and the gun's correction factor.
+        * Returns the total damage dealt by the burst shot.
+        * 
+        * @param difficulty the difficulty of the target
+        * @return the damage dealt by the burst shot
+        */
         int burstShot(double difficulty) {
             int currentDamage = 0;
             if (ammo >= burstSize) {
@@ -44,6 +61,11 @@ class Gun {
             
         }
 
+        /**
+         * Reloads the gun.
+         * If the current ammo is less than the mag size, reloads the gun to the mag size.
+         * Otherwise, does nothing.
+         */
         void reload() {
             if (ammo < magSize) {
                 ammo = magSize;

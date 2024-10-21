@@ -16,13 +16,23 @@ class Target {
 
         int getHealth() const { return health; }
 
+        /**
+         * Reduces the health of the target by the given damage.
+         * If the health falls to zero or below, the target is considered destroyed.
+         *
+         * @param damage the amount of damage to apply to the target
+         */
         void reduceHealth(int damage) {
             health -= damage;
         }
 
+        /**
+        * Check if the target is alive based on its current health.
+        */
         bool isAlive() const {
             return health > 0;
         }
+
 
         void destroy() {
             destroyed = true;

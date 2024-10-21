@@ -22,6 +22,12 @@ class ShootingRange {
             targets.push_back(target);
         }
 
+        /**
+         * Generates a random number of targets between 1 and 4.
+         * Each target is randomly chosen to be either a StandardTarget or a MovingTarget.
+         * The distance, size, health and speed of each target are also randomly generated.
+         * The targets are added to the ShootingRange and then printed out.
+         */
         void generateRandomTargets() {
             int numTargets = std::rand() % 4 + 1;
             for (int i = 0; i < numTargets; i++) {
@@ -62,6 +68,14 @@ class ShootingRange {
             std::cout << std::endl;
         }
         
+        /**
+        * Simulates the shooting range for 60 rounds.
+        * Each round, iterates through the targets and checks if they are alive.
+        * If the chance to burst shot is met, performs a burst shot using the gun and reduces the target's health.
+        * If the target is destroyed, updates statistics and marks the target as destroyed.
+        * If the chance to burst shot is not met, performs a single shot using the gun and updates statistics accordingly.
+        * Calculates average damage, creates round statistics, and resets the statistics for the next round.
+        */
         void simulate() {
 
             for (int i = 0; i < 60; i++) {
@@ -109,6 +123,11 @@ class ShootingRange {
             resetStatistics();
         }
 
+        /**
+         * Resets all statistics to zero.
+         *
+         * This function should be called before each new round of simulation.
+         */
         void resetStatistics() {
             destroyedTargets = 0;
             avgDamage = 0.0;
@@ -117,6 +136,12 @@ class ShootingRange {
             totalShots = 0;
         }
 
+        /**
+         * Prints all round statistics stored in the ShootingRange object to the standard output.
+         *
+         * This function iterates over the statistics vector and prints each round's statistics
+         * using the Statistics class's overloaded operator<< output stream operator.
+         */
         void printStatistics() {
             for (auto& stat : statistics) {
                 std::cout << *stat << std::endl;
