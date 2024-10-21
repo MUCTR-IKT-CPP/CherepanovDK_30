@@ -20,7 +20,11 @@ class MovingTarget : public Target {
         }
 
         void print(std::ostream& os) const {
-            os << "MovingTarget: " << "Distance: " << distance << ", Size: " << size << ", Health: " << health << ", Speed: " << speed << ", Destroyed: " << destroyed;
+            if (!destroyed) {
+            os << "MovingTarget: " << "Distance: " << distance << ", Size: " << size << ", Health: " << health << ", Speed: " << speed;
+            } else {
+                os << "Moving Target: " << "Destroyed at round: " << destructionRound;
+            }
         }
 
 };

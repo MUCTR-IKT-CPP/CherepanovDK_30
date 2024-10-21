@@ -14,6 +14,10 @@ class StandardTarget : public Target {
 
 
         void print(std::ostream& os) const {
-            os << "StandardTarget: " << "Distance: " << distance << ", Size: " << size << ", Health: " << health << ", Destroyed: " << destroyed;
+            if (!destroyed) {
+                os << "StandardTarget: " << "Distance: " << distance << ", Size: " << size << ", Health: " << health;
+            } else {
+                os << "Standard Target: " << "Destroyed at round: " << destructionRound;
+            }
         }
 };   

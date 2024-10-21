@@ -4,6 +4,7 @@ class Target {
         int size;
         int health;
         bool destroyed = false;
+        int destructionRound;
 
     public:
         
@@ -25,6 +26,10 @@ class Target {
 
         void destroy() {
             destroyed = true;
+        }
+
+        void setDestructionRound(int round) {
+            destructionRound = round;
         }
 
 

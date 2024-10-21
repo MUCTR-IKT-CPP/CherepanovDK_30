@@ -3,7 +3,7 @@
 #include <ctime>
 class ShootingRange {
     private:
-        int round = 0;
+        int round = 1;
         std::shared_ptr<Gun> gun;
         std::vector<std::shared_ptr<Target>> targets;
         std::vector<std::shared_ptr<Statistics>> statistics;
@@ -91,6 +91,7 @@ class ShootingRange {
                                 totallHits++;
                                 if (!target->isAlive()) {
                                     target->destroy();
+                                    target->setDestructionRound(round);
                                     destroyedTargets++;
                                 }
                             }
@@ -100,7 +101,10 @@ class ShootingRange {
                 }
             }
             avgDamage = (double)totalDamage / (double)totalShots;
-            statistics.push_back(std::make_shared<Statistics>(round, totalDamage, totalShots, totallHits, destroyedTargets, avgDamage));
+            std::shared_ptr<Statistics> roundStatistics = std::make_shared<Statistics>(round, totalDamage, totalShots, totallHits, destroyedTargets, avgDamage);
+            statistics.push_back(roundStatistics);
+            std::cout << "Round " << round << " completed" << std::endl;
+            std::cout << "Round statistics: " << *roundStatistics << std::endl;
             round++;
             resetStatistics();
         }

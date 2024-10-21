@@ -7,6 +7,7 @@ void menu() {
     std::cout << "2 - Start simulation" << std::endl;
     std::cout << "3 - Print statistics" << std::endl;
     std::cout << "4 - Generate new targets" << std::endl;
+    std::cout << "5 - Print targets" << std::endl;
     std::cout << "0 - Exit" << std::endl;
 }
 
@@ -68,6 +69,9 @@ int main() {
             case 4:
                 shootingRange.generateRandomTargets();
                 break;
+            case 5:
+                shootingRange.printTargets();
+                break;    
             case 0:
                 return 0;
             default:
