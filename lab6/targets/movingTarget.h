@@ -16,12 +16,11 @@ class MovingTarget : public Target {
 
             if (difficulty < 0.0) difficulty = 0.0;
             if (difficulty > 1.0) difficulty = 1.0;
-            std::cout << "Moving target difficulty: " << difficulty << std::endl;
             return difficulty;
         }
 
         void print(std::ostream& os) const {
-            os << "MovingTarget: " << "Distance: " << distance << ", Size: " << size << ", Health: " << health << ", Speed: " << speed;
+            os << "MovingTarget: " << "Distance: " << distance << ", Size: " << size << ", Health: " << health << ", Speed: " << speed << ", Destroyed: " << destroyed;
         }
 
 };

@@ -3,6 +3,7 @@ class Target {
         int distance;
         int size;
         int health;
+        bool destroyed = false;
 
     public:
         
@@ -20,6 +21,10 @@ class Target {
 
         bool isAlive() const {
             return health > 0;
+        }
+
+        void destroy() {
+            destroyed = true;
         }
 
 
